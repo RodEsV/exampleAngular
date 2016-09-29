@@ -1,0 +1,75 @@
+<h5>Formulario de usuario</h5>
+
+<form [formGroup]="form" >
+  <label>
+    Primer Nombre
+  </label>
+  <br>
+  <input type="text" formControlName="name" >
+  <div *ngIf="form.controls.name.dirty && !form.controls.name.valid" >
+   <div *ngIf="form.controls.name.errors">
+      El nombre es requerido
+   </div>
+  </div>
+  <br>
+  <label>Segundo Nombre</label>
+  <br>
+  <input type="text" formControlName="lastName">
+  <div *ngIf="form.controls.lastName.dirty && !form.controls.lastName.valid" >
+   <div *ngIf="form.controls.lastName.errors">
+      El segundo nombre debe ser mayor a tres caracteres
+   </div>
+  </div>
+  <br>
+  
+  
+  <div class="container">
+    
+    <fieldset formGroupName="telephone">
+      <label>Código de país</label>
+      <br>
+      <input type="text" formControlName="countryCallingCode">
+      <br>
+      <div *ngIf="form.controls.telephone.controls.countryCallingCode.dirty && !form.controls.telephone.controls.countryCallingCode.valid" >
+       <div *ngIf="form.controls.telephone.controls.countryCallingCode.errors">
+          Este espacio debe contener solamente números debe tener una longitud de 6 caracteres
+       </div>
+      </div>
+      <label>Código de ciudad</label>
+      <br>
+      <input type="text" formControlName="cityCallingCode">
+      <div *ngIf="form.controls.telephone.controls.cityCallingCode.dirty && !form.controls.telephone.controls.cityCallingCode.valid" >
+       <div *ngIf="form.controls.telephone.controls.cityCallingCode.errors">
+          Este espacio es obligatorio y debe tener al menos 3 caracteres
+       </div>
+      </div>
+      
+      <br>
+      <label>Típo (movil, fijo)</label>
+      <br>
+      <input type="text" placeholder="movil,fijo ..." formControlName="type">
+      <br>
+    </fieldset>
+    <br>
+  </div>
+  
+  <div formArrayName="addresses">
+    <div *ngFor="let address of form.controls.addresses.controls; let i=index">
+      <div *ngIf="form.controls.addresses.controls.length > 0" >
+        <div [formGroupName]="i">
+          <address-component [group]="form.controls.addresses.controls[i]"></address-component>
+        </div>
+        <div>
+          <div>
+            <button type="button" class="btn btn-danger" (click)="removeAddress(i)">Eliminar dirección</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!--{{form.value | json}}-->
+    <div>
+      <button type="button" (click)="addAddress()">Agregar dirección</button>
+    </div>
+  </div>
+</form>
