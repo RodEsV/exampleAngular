@@ -2,7 +2,7 @@ export const PAGES_MENU = [
   {
     path: 'pages',
     children: [
-      {
+      /*{
         path: 'dashboard',
         data: {
           menu: {
@@ -13,7 +13,7 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      },
+      },*/
       {
         path: 'editors',
         data: {
@@ -79,7 +79,7 @@ export const PAGES_MENU = [
             }
           }
         ]
-      },
+      },/*
       {
         path: 'ui',
         data: {
@@ -125,7 +125,7 @@ export const PAGES_MENU = [
             }
           },
         ]
-      },
+      },*/
       {
         path: 'forms',
         data: {
@@ -145,7 +145,7 @@ export const PAGES_MENU = [
                 title: 'Form Inputs',
               }
             }
-          },
+          },/*
           {
             path: 'layouts',
             data: {
@@ -153,7 +153,7 @@ export const PAGES_MENU = [
                 title: 'Form Layouts',
               }
             }
-          }
+          }*/
         ]
       },
       {
@@ -231,7 +231,7 @@ export const PAGES_MENU = [
             }
           }
         ]
-      },
+      },/*
       {
         path: '',
         data: {
@@ -263,7 +263,7 @@ export const PAGES_MENU = [
             }
           }
         ]
-      },
+      },*/ /*
       {
         path: '',
         data: {
@@ -318,7 +318,7 @@ export const PAGES_MENU = [
             target: '_blank'
           }
         }
-      }
+      }*/
     ]
   }
 ];

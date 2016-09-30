@@ -239,7 +239,14 @@ module.exports = function(env) {
       module: false,
       clearImmediate: false,
       setImmediate: false
-    }
+    },
+
+    historyApiFallback: {
+    rewrites: [{
+      from: /\/(\d\.)?app\.js(\.map)?/,
+      to: context => context.match[0]
+      }]
+     }
 
   });
 }
